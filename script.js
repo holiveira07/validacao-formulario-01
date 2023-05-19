@@ -15,11 +15,11 @@ usernameInput.addEventListener("blur", (e) => {
 } )*/
 
 function addPopup(input, label) {
-    input.addEventListener("focus", () =>{
+    input.addEventListener("focus", () => {
         label.classList.add("required-popup");
     })
 
-    input.addEventListener("blur", () =>{
+    input.addEventListener("blur", () => {
         label.classList.remove("required-popup");
     })
 }
@@ -27,22 +27,22 @@ function addPopup(input, label) {
 addPopup(usernameInput, usernameLabel);
 
 // Validar valor do input
-usernameInput.addEventListener("change" , (e) => {
+usernameInput.addEventListener("change", (e) => {
     let valorname = e.target.value;
 
-    if (valorname.length < 3 ) {
+    if (valorname.length < 3) {
         usernameInput.classList.remove("correct");
         usernameInput.classList.add("error");
         usernameHelper.classList.add("visible");
-        usernameHelper.innerText = "O campo Username precisa ter mais de tres caracteres";
-        
-} else {
+        usernameHelper.innerText = "O campo Username precisa ter mais de três caracteres";
+
+    } else {
         usernameInput.classList.add("correct");
         usernameHelper.classList.remove("visible");
-}
+    }
 });
 
-   //-------- VALIDAR O VALOR DO E-MAIL--------//
+//-------- VALIDAR O VALOR DO E-MAIL--------//
 let emailInput = document.getElementById("email");
 let emailLabel = document.querySelector('label[for="email"]');
 let emailHelper = document.getElementById("email-helper");
@@ -73,14 +73,14 @@ emailInput.addEventListener("change", (e) => {
     if (valoremail.includes("@") && valoremail.includes(".com")) {
         emailInput.classList.add("correct");
         emailHelper.classList.remove("visible");
-          
-    }else{
+
+    } else {
         emailInput.classList.remove("correct");
         emailInput.classList.add("error");
         emailHelper.classList.add("visible");
-        emailHelper.innerText = "Por favor digite um endereço de e-mail válido"
-        
-}
+        emailHelper.innerText = "Por favor digite um endereço de e-mail válido."
+
+    }
 })
 
 //------------VALIDAR O VALOR DA SENHA--------------//
@@ -99,19 +99,19 @@ addPopup(senhaInput, senhaLabel)
 
 })*/
 
-senhaInput.addEventListener("change", (e) =>{
+senhaInput.addEventListener("change", (e) => {
     let valorsenha = e.target.value
-   
-    if( valorsenha.length < 7 ) {
+
+    if (valorsenha.length < 7) {
         senhaInput.classList.remove("correct");
         senhaInput.classList.add("error");
         senhaHelper.classList.add("visible");
-        senhaHelper.innerText = "Por favor digite uma senha com no minimo 8 carcteres."
-    }else{
-    senhaInput.classList.add("correct");
-    senhaHelper.classList.remove("visible");
+        senhaHelper.innerText = "Por favor digite uma senha com no mínimo 8 carcteres."
+    } else {
+        senhaInput.classList.add("correct");
+        senhaHelper.classList.remove("visible");
 
-    } 
+    }
 })
 
 //----------------VALIDAR O VALOR DO CONFIRMA SENHA ---------------//
@@ -129,19 +129,19 @@ confirmaSenhaLabel.classList.remove("required-popup")
 
 })*/
 
-confirmaSenhaInput.addEventListener("change", (e) =>{
+confirmaSenhaInput.addEventListener("change", (e) => {
     let valorconfirma = e.target.value
 
-    if( valorconfirma == senhaInput.value ) {
-    confirmaSenhaInput.classList.add("correct");
+    if (valorconfirma == senhaInput.value) {
+        confirmaSenhaInput.classList.add("correct");
 
-    confirmaSenhaHelper.classList.remove("visible");
-    
-}else{
-    confirmaSenhaInput.classList.remove("correct");
-    confirmaSenhaInput.classList.add("error");
-    confirmaSenhaHelper.classList.add("visible");
-    confirmaSenhaHelper.innerText = "As senhas não são iguais"
-}
+        confirmaSenhaHelper.classList.remove("visible");
+
+    } else {
+        confirmaSenhaInput.classList.remove("correct");
+        confirmaSenhaInput.classList.add("error");
+        confirmaSenhaHelper.classList.add("visible");
+        confirmaSenhaHelper.innerText = "As senhas não são iguais."
+    }
 
 })
